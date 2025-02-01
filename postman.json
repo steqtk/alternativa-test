@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Billing API",
+    "_postman_id": "12345678-1234-1234-1234-1234567890ab",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "register"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get User Info",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/user/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "user", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Perform Transaction",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/transaction",
+          "host": ["{{base_url}}"],
+          "path": ["api", "transaction"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1,\n  \"amount\": 100.00,\n  \"description\": \"Deposit\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Transactions",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/transactions?user_id=1&sort=desc",
+          "host": ["{{base_url}}"],
+          "path": ["api", "transactions"],
+          "query": [
+            {
+              "key": "user_id",
+              "value": "1"
+            },
+            {
+              "key": "sort",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}
+
